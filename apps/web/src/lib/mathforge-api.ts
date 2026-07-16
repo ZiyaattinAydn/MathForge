@@ -1,4 +1,5 @@
 import type {
+  LearningTopic,
   LearningTopicSummary,
   Question,
   QuestionSummary,
@@ -35,6 +36,12 @@ export function getQuestion(slug: string): Promise<Question> {
 
 export function getLearningTopicSummaries(): Promise<LearningTopicSummary[]> {
   return request<LearningTopicSummary[]>("/api/v1/learning-topics");
+}
+
+export function getLearningTopic(slug: string): Promise<LearningTopic> {
+  return request<LearningTopic>(
+    `/api/v1/learning-topics/${encodeURIComponent(slug)}`,
+  );
 }
 
 export async function submitSolution(

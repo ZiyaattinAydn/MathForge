@@ -58,6 +58,21 @@ export type LearningTopicSummary = {
   summary: string;
 };
 
+export type MiniExercise = {
+  prompt: string;
+  answers: LanguageValues;
+  explanation: string;
+};
+
+export type LearningTopic = LearningTopicSummary & {
+  concept: string;
+  why_it_matters: string;
+  code_examples: LanguageValues;
+  quick_tips: string[];
+  common_mistakes: string[];
+  mini_exercise: MiniExercise;
+};
+
 export type SubmissionStatus =
   | "accepted"
   | "wrong_answer"
