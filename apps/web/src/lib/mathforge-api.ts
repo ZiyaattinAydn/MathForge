@@ -1,5 +1,6 @@
 import type {
   LearningTopicSummary,
+  Question,
   QuestionSummary,
 } from "@/types/mathforge";
 
@@ -17,11 +18,15 @@ async function request<T>(path: string): Promise<T> {
     );
   }
 
-  return response.json() as Promise<T>;
+  return (await response.json()) as T;
 }
 
 export function getQuestionSummaries(): Promise<QuestionSummary[]> {
   return request<QuestionSummary[]>("/api/v1/questions");
+}
+
+export function getQuestion(slug: string): Promise<Question> {
+  return request<Question>(`/api/v1/questions/${encodeURIComponent(slug)}`);
 }
 
 export function getLearningTopicSummaries(): Promise<LearningTopicSummary[]> {
