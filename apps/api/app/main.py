@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
+from app.routers.learning import router as learning_router
 from app.routers.questions import router as questions_router
 
 
@@ -11,10 +12,11 @@ class HealthResponse(BaseModel):
 
 app = FastAPI(
     title="MathForge API",
-    version="0.2.0",
+    version="0.3.0",
 )
 
 app.include_router(questions_router)
+app.include_router(learning_router)
 
 
 @app.get(

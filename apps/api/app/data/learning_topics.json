@@ -1,0 +1,134 @@
+[
+  {
+    "id": "variables",
+    "slug": "degiskenler",
+    "order": 1,
+    "title": "Değişkenler",
+    "summary": "Değerleri isim vererek saklamayı ve daha sonra kullanmayı öğren.",
+    "concept": "Değişken, bir değeri sakladığımız isimlendirilmiş bir kutu gibidir. Sayı, metin veya başka bir veri değişkende tutulabilir.",
+    "why_it_matters": "Bir değeri değişkene koyduğunda aynı değeri tekrar yazmak zorunda kalmazsın. Ayrıca kodun ne yaptığını anlamak kolaylaşır.",
+    "code_examples": {
+      "javascript": "let age = 18;\nconst userName = \"Ziyaattin\";",
+      "python": "age = 18\nuser_name = \"Ziyaattin\"",
+      "csharp": "int age = 18;\nstring userName = \"Ziyaattin\";"
+    },
+    "quick_tips": [
+      "Değişken adı, tuttuğu değeri anlatmalıdır.",
+      "Metin değerlerini tırnak içinde yaz.",
+      "Sayıları tırnak içine alma; aksi hâlde metin olarak değerlendirilir."
+    ],
+    "common_mistakes": [
+      "Değişken adını anlamsız tek harflerden seçmek.",
+      "Metin değerlerinde tırnak kullanmayı unutmak.",
+      "Aynı değişkeni farklı amaçlarla tekrar kullanmak."
+    ],
+    "mini_exercise": {
+      "prompt": "20 değerini price, 3 değerini quantity adındaki değişkenlerde sakla.",
+      "answers": {
+        "javascript": "const price = 20;\nconst quantity = 3;",
+        "python": "price = 20\nquantity = 3",
+        "csharp": "int price = 20;\nint quantity = 3;"
+      },
+      "explanation": "Her değeri, neyi temsil ettiğini açıklayan ayrı bir değişkende sakladık."
+    }
+  },
+  {
+    "id": "arithmetic",
+    "slug": "dort-islem",
+    "order": 2,
+    "title": "Dört İşlem",
+    "summary": "Toplama, çıkarma, çarpma, bölme ve kalan bulma işlemlerini kodda kullan.",
+    "concept": "Programlama dillerinde matematik işlemleri operatör adı verilen sembollerle yapılır: +, -, *, / ve %.",
+    "why_it_matters": "Matematik problemlerini koda çevirmek için formülleri doğru operatörlerle yazman gerekir.",
+    "code_examples": {
+      "javascript": "const total = 10 + 5;\nconst product = 10 * 5;\nconst remainder = 10 % 3;",
+      "python": "total = 10 + 5\nproduct = 10 * 5\nremainder = 10 % 3",
+      "csharp": "int total = 10 + 5;\nint product = 10 * 5;\nint remainder = 10 % 3;"
+    },
+    "quick_tips": [
+      "Çarpma için x harfi değil, * operatörü kullanılır.",
+      "% operatörü bölme işleminden kalanı verir.",
+      "İşlem sırasını netleştirmek için parantez kullanabilirsin."
+    ],
+    "common_mistakes": [
+      "Çarpma işlemi için x yazmak.",
+      "İşlem önceliğini göz ardı etmek.",
+      "Tam sayı ve ondalıklı sayı bölmesini karıştırmak."
+    ],
+    "mini_exercise": {
+      "prompt": "price ve quantity değişkenlerini çarparak totalPrice değerini hesapla.",
+      "answers": {
+        "javascript": "const totalPrice = price * quantity;",
+        "python": "total_price = price * quantity",
+        "csharp": "int totalPrice = price * quantity;"
+      },
+      "explanation": "Toplam fiyat, bir ürünün fiyatı ile ürün adedinin çarpılmasıyla bulunur."
+    }
+  },
+  {
+    "id": "functions",
+    "slug": "fonksiyonlar",
+    "order": 3,
+    "title": "Fonksiyonlar",
+    "summary": "Değer alan ve belirli bir görevi yerine getiren yeniden kullanılabilir kod parçaları oluştur.",
+    "concept": "Fonksiyon, girdiler alan, bir işlem yapan ve gerektiğinde sonuç üreten küçük bir makine gibidir.",
+    "why_it_matters": "MathForge sorularında senden çoğunlukla verilen fonksiyonun içini tamamlaman istenir.",
+    "code_examples": {
+      "javascript": "function addNumbers(a, b) {\n  return a + b;\n}",
+      "python": "def add_numbers(a, b):\n    return a + b",
+      "csharp": "public static int AddNumbers(int a, int b)\n{\n    return a + b;\n}"
+    },
+    "quick_tips": [
+      "Parantez içindeki değerler fonksiyonun parametreleridir.",
+      "MathForge fonksiyonuna test değerlerini kendisi gönderir.",
+      "prompt, input veya Console.ReadLine kullanmana gerek yoktur."
+    ],
+    "common_mistakes": [
+      "Fonksiyonun adını değiştirmek.",
+      "Beklenen parametreleri silmek.",
+      "Kullanıcıdan ayrıca veri almaya çalışmak."
+    ],
+    "mini_exercise": {
+      "prompt": "number adında bir parametre alan doubleNumber fonksiyonu oluştur.",
+      "answers": {
+        "javascript": "function doubleNumber(number) {\n  return number * 2;\n}",
+        "python": "def double_number(number):\n    return number * 2",
+        "csharp": "public static int DoubleNumber(int number)\n{\n    return number * 2;\n}"
+      },
+      "explanation": "Fonksiyon number parametresini alır ve ikiyle çarpılmış sonucunu döndürür."
+    }
+  },
+  {
+    "id": "return",
+    "slug": "return",
+    "order": 4,
+    "title": "Sonuç Döndürmek: return",
+    "summary": "Fonksiyonun hesapladığı sonucu MathForge'a geri vermeyi öğren.",
+    "concept": "return, fonksiyonun ürettiği sonucu fonksiyonu çağıran yere geri gönderir.",
+    "why_it_matters": "MathForge test sistemi, fonksiyonunun ekrana ne yazdırdığına değil, hangi değeri döndürdüğüne bakar.",
+    "code_examples": {
+      "javascript": "function square(number) {\n  const result = number * number;\n  return result;\n}",
+      "python": "def square(number):\n    result = number * number\n    return result",
+      "csharp": "public static int Square(int number)\n{\n    int result = number * number;\n    return result;\n}"
+    },
+    "quick_tips": [
+      "Sonucu yalnızca hesaplamak yeterli değildir; return etmelisin.",
+      "return çalıştığında fonksiyon genellikle o noktada sona erer.",
+      "console.log veya print, return yerine geçmez."
+    ],
+    "common_mistakes": [
+      "Sonucu hesaplayıp return yazmayı unutmak.",
+      "Sonucu döndürmek yerine yalnızca ekrana yazdırmak.",
+      "return satırını çalışmayacak bir koşulun içine koymak."
+    ],
+    "mini_exercise": {
+      "prompt": "number değerinin karesini result değişkenine koy ve sonucu döndür.",
+      "answers": {
+        "javascript": "const result = number * number;\nreturn result;",
+        "python": "result = number * number\nreturn result",
+        "csharp": "int result = number * number;\nreturn result;"
+      },
+      "explanation": "Önce sonucu hesapladık, ardından return ile fonksiyonun dışına gönderdik."
+    }
+  }
+]
