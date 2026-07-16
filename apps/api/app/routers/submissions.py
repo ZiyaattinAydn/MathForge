@@ -9,6 +9,7 @@ from app.models.submission import (
 from app.services.judge0 import Judge0Client, get_judge0_client
 from app.services.question_catalog import find_question_by_id
 from app.services.question_tests import get_question_tests
+from app.services.submission_guard import enforce_submission_guard
 from app.services.submission_runner import run_submission
 
 router = APIRouter(
@@ -21,6 +22,7 @@ router = APIRouter(
     "",
     response_model=SubmissionResponse,
     summary="Run a submitted solution",
+    dependencies=[Depends(enforce_submission_guard)],
 )
 def create_submission(
     submission: SubmissionRequest,
