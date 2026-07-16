@@ -30,8 +30,8 @@ const languageLabels: Record<Language, string> = {
 };
 
 const audienceLabels: Record<Audience, string> = {
-  general: "Herkes İçin Matematik",
-  "math-lover": "Matematik Meraklıları",
+  general: "Temel Seviye",
+  "math-lover": "Matematik Meraklısı",
 };
 
 const difficultyLabels: Record<Difficulty, string> = {
@@ -87,6 +87,38 @@ const learningTopicLinks: Record<
   },
 };
 
+const DRAFT_STORAGE_KEY = "mathforge-drafts-v1";
+
+function readStoredDrafts(): Record<string, string> {
+  if (typeof window === "undefined") {
+    return {};
+  }
+
+  try {
+    const storedValue = localStorage.getItem(DRAFT_STORAGE_KEY);
+
+    if (!storedValue) {
+      return {};
+    }
+
+    return JSON.parse(storedValue) as Record<string, string>;
+  } catch {
+    localStorage.removeItem(DRAFT_STORAGE_KEY);
+    return {};
+  }
+}
+
+function persistDrafts(drafts: Record<string, string>) {
+  try {
+    localStorage.setItem(
+      DRAFT_STORAGE_KEY,
+      JSON.stringify(drafts),
+    );
+  } catch {
+    // Taslakların saklanamaması editör kullanımını engellememeli.
+  }
+}
+
 function getDraftKey(
   questionId: string,
   language: Language,
@@ -127,14 +159,19 @@ export function QuestionWorkspace({
   const [selectedQuestion, setSelectedQuestion] =
     useState<Question | null>(initialQuestion);
 
+  const [selectedAudience, setSelectedAudience] =
+    useState<Audience>(initialQuestion?.audience ?? "general");
+
   const [selectedLanguage, setSelectedLanguage] =
     useState<Language>("python");
 
   const [drafts, setDrafts] = useState<Record<string, string>>(
-    () =>
-      initialQuestion
+    () => ({
+      ...(initialQuestion
         ? createQuestionDrafts(initialQuestion)
-        : {},
+        : {}),
+      ...readStoredDrafts(),
+    }),
   );
 
   const [isLoading, setIsLoading] = useState(false);
@@ -189,10 +226,15 @@ export function QuestionWorkspace({
       selectedLanguage,
     );
 
-    setDrafts((currentDrafts) => ({
-      ...currentDrafts,
-      [key]: value,
-    }));
+    setDrafts((currentDrafts) => {
+      const nextDrafts = {
+        ...currentDrafts,
+        [key]: value,
+      };
+
+      persistDrafts(nextDrafts);
+      return nextDrafts;
+    });
   }
 
   function resetCode() {
@@ -205,11 +247,15 @@ export function QuestionWorkspace({
       selectedLanguage,
     );
 
-    setDrafts((currentDrafts) => ({
-      ...currentDrafts,
-      [key]:
-        selectedQuestion.starter_code[selectedLanguage],
-    }));
+    setDrafts((currentDrafts) => {
+      const nextDrafts = {
+        ...currentDrafts,
+        [key]: selectedQuestion.starter_code[selectedLanguage],
+      };
+
+      persistDrafts(nextDrafts);
+      return nextDrafts;
+    });
   }
 
   async function runCode() {
@@ -238,6 +284,25 @@ export function QuestionWorkspace({
     }
   }
 
+  const filteredQuestions = questions.filter(
+    (question) => question.audience === selectedAudience,
+  );
+
+  function chooseAudience(audience: Audience) {
+    setSelectedAudience(audience);
+
+    const firstQuestion = questions.find(
+      (question) => question.audience === audience,
+    );
+
+    if (
+      firstQuestion &&
+      selectedQuestion?.audience !== audience
+    ) {
+      void chooseQuestion(firstQuestion.slug);
+    }
+  }
+
   const currentCode = selectedQuestion
     ? drafts[
         getDraftKey(
@@ -262,12 +327,48 @@ export function QuestionWorkspace({
           </div>
 
           <span className="rounded-full border border-[var(--border)] px-2.5 py-1 text-xs text-[var(--text-secondary)]">
-            {questions.length}/12
+            {filteredQuestions.length} soru
           </span>
         </div>
 
-        <div className="mt-2 space-y-2">
-          {questions.map((question) => {
+        <div className="mb-3 grid grid-cols-2 gap-2">
+          <button
+            type="button"
+            className={`rounded-xl border px-3 py-3 text-left ${
+              selectedAudience === "general"
+                ? "border-[var(--brand)] bg-[var(--brand)] text-[var(--on-brand)]"
+                : "border-[var(--border)] bg-[var(--surface-elevated)] text-[var(--text-secondary)] hover:border-[var(--brand)]"
+            }`}
+            onClick={() => chooseAudience("general")}
+          >
+            <span className="block text-sm font-bold">
+              Temel Seviye
+            </span>
+            <span className="mt-1 block text-xs opacity-75">
+              {questions.filter((question) => question.audience === "general").length} soru
+            </span>
+          </button>
+
+          <button
+            type="button"
+            className={`rounded-xl border px-3 py-3 text-left ${
+              selectedAudience === "math-lover"
+                ? "border-[var(--brand)] bg-[var(--brand)] text-[var(--on-brand)]"
+                : "border-[var(--border)] bg-[var(--surface-elevated)] text-[var(--text-secondary)] hover:border-[var(--brand)]"
+            }`}
+            onClick={() => chooseAudience("math-lover")}
+          >
+            <span className="block text-sm font-bold">
+              Matematik Meraklısı
+            </span>
+            <span className="mt-1 block text-xs opacity-75">
+              {questions.filter((question) => question.audience === "math-lover").length} soru
+            </span>
+          </button>
+        </div>
+
+        <div className="space-y-2">
+          {filteredQuestions.map((question) => {
             const isSelected =
               selectedQuestion?.slug === question.slug;
 
@@ -526,7 +627,7 @@ export function QuestionWorkspace({
 
               <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
                 <p className="text-xs text-[var(--text-secondary)]">
-                  Taslaklar bu oturum boyunca korunur.
+                  Taslaklar bu tarayıcıda otomatik olarak saklanır.
                 </p>
 
                 <button
