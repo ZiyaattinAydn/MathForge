@@ -130,5 +130,137 @@
       },
       "explanation": "Önce sonucu hesapladık, ardından return ile fonksiyonun dışına gönderdik."
     }
+  },
+  {
+    "id": "conditions",
+    "slug": "kosullar",
+    "order": 5,
+    "title": "Koşullar ve Karşılaştırmalar",
+    "summary": "Programın farklı durumlarda farklı kararlar vermesini sağla.",
+    "concept": "Koşullar, doğru veya yanlış olan bir ifadeye göre hangi kodun çalışacağını belirler.",
+    "why_it_matters": "Tek-çift, büyüklük ve asal sayı gibi problemlerde programın karar vermesi gerekir.",
+    "code_examples": {
+      "javascript": "if (number > 0) {\n  return \"pozitif\";\n} else {\n  return \"pozitif değil\";\n}",
+      "python": "if number > 0:\n    return \"pozitif\"\nelse:\n    return \"pozitif değil\"",
+      "csharp": "if (number > 0)\n{\n    return \"pozitif\";\n}\nelse\n{\n    return \"pozitif değil\";\n}"
+    },
+    "quick_tips": [
+      "= değer atar, == veya === karşılaştırma yapar.",
+      "Önce en basit koşulu kontrol et.",
+      "Birden fazla koşul için else if veya elif kullanabilirsin."
+    ],
+    "common_mistakes": [
+      "Karşılaştırma yerine değer atama operatörü kullanmak.",
+      "Eşitlik durumunu gözden kaçırmak.",
+      "Python'da girintiyi yanlış kullanmak."
+    ],
+    "mini_exercise": {
+      "prompt": "age değeri 18 veya daha büyükse true döndüren koşulu yaz.",
+      "answers": {
+        "javascript": "return age >= 18;",
+        "python": "return age >= 18",
+        "csharp": "return age >= 18;"
+      },
+      "explanation": ">= operatörü büyük veya eşit olma durumunu kontrol eder."
+    }
+  },
+  {
+    "id": "loops",
+    "slug": "donguler",
+    "order": 6,
+    "title": "Döngüler",
+    "summary": "Aynı işlemi belirli bir koşul boyunca tekrar et.",
+    "concept": "Döngü, bir kod parçasını birden fazla kez çalıştırır.",
+    "why_it_matters": "Rakamları, bölenleri ve sayı dizilerini tek tek işlemek için tekrar gerekir.",
+    "code_examples": {
+      "javascript": "let total = 0;\nfor (let number = 1; number <= 5; number += 1) {\n  total += number;\n}",
+      "python": "total = 0\nfor number in range(1, 6):\n    total += number",
+      "csharp": "int total = 0;\nfor (int number = 1; number <= 5; number++)\n{\n    total += number;\n}"
+    },
+    "quick_tips": [
+      "Döngünün ne zaman biteceğini baştan düşün.",
+      "Sayaç değişkenini her turda güncelle.",
+      "total += number, total = total + number işleminin kısa yazımıdır."
+    ],
+    "common_mistakes": [
+      "Döngü değişkenini güncellemeyip sonsuz döngü oluşturmak.",
+      "Başlangıç veya bitiş değerini bir eksik ya da fazla almak.",
+      "Toplam değişkenini her turda sıfırlamak."
+    ],
+    "mini_exercise": {
+      "prompt": "1'den 5'e kadar olan sayıları toplayan bir döngü yaz.",
+      "answers": {
+        "javascript": "let total = 0;\nfor (let i = 1; i <= 5; i += 1) {\n  total += i;\n}",
+        "python": "total = 0\nfor i in range(1, 6):\n    total += i",
+        "csharp": "int total = 0;\nfor (int i = 1; i <= 5; i++)\n{\n    total += i;\n}"
+      },
+      "explanation": "Sayaç 1'den başlayıp 5 dâhil olana kadar toplam değişkenine eklenir."
+    }
+  },
+  {
+    "id": "modulo",
+    "slug": "modulo",
+    "order": 7,
+    "title": "Kalan Bulma Operatörü: %",
+    "summary": "Bir bölme işleminden kalan değeri hesapla.",
+    "concept": "% operatörü iki sayının bölümünden kalan değeri verir.",
+    "why_it_matters": "Tek-çift kontrolü, rakam ayırma ve bölünebilme problemlerinde sık kullanılır.",
+    "code_examples": {
+      "javascript": "const remainder = 10 % 3;\nconst isEven = number % 2 === 0;",
+      "python": "remainder = 10 % 3\nis_even = number % 2 == 0",
+      "csharp": "int remainder = 10 % 3;\nbool isEven = number % 2 == 0;"
+    },
+    "quick_tips": [
+      "10 % 3 işleminin sonucu 1'dir.",
+      "number % 10 sayının son rakamını verir.",
+      "number % 2 == 0 ifadesi çift sayıları bulur."
+    ],
+    "common_mistakes": [
+      "% operatörünü yüzde hesabı sanmak.",
+      "Kalan ile bölüm sonucunu karıştırmak.",
+      "Karşılaştırmada sıfırı unutmak."
+    ],
+    "mini_exercise": {
+      "prompt": "number değerinin 5'e tam bölünüp bölünmediğini kontrol et.",
+      "answers": {
+        "javascript": "return number % 5 === 0;",
+        "python": "return number % 5 == 0",
+        "csharp": "return number % 5 == 0;"
+      },
+      "explanation": "Bölümden kalan sıfırsa sayı 5'e tam bölünür."
+    }
+  },
+  {
+    "id": "arrays",
+    "slug": "listeler",
+    "order": 8,
+    "title": "Listeler ve Diziler",
+    "summary": "Birden fazla değeri sıralı biçimde birlikte sakla.",
+    "concept": "Liste veya dizi, birden fazla değeri tek bir değişken altında sıralı olarak tutar.",
+    "why_it_matters": "Çok sayıda değer üzerinde toplama, arama ve karşılaştırma yapmayı kolaylaştırır.",
+    "code_examples": {
+      "javascript": "const numbers = [10, 20, 30];\nconst first = numbers[0];",
+      "python": "numbers = [10, 20, 30]\nfirst = numbers[0]",
+      "csharp": "int[] numbers = { 10, 20, 30 };\nint first = numbers[0];"
+    },
+    "quick_tips": [
+      "İlk elemanın indeksi 0'dır.",
+      "Döngüyle listedeki her elemanı gezebilirsin.",
+      "Eleman sayısı ile son indeks aynı değildir."
+    ],
+    "common_mistakes": [
+      "İlk elemanı 1. indeksten almaya çalışmak.",
+      "Listenin sınırları dışında bir indekse erişmek.",
+      "Elemanın kendisiyle indeksini karıştırmak."
+    ],
+    "mini_exercise": {
+      "prompt": "numbers listesinin ilk elemanını first değişkenine aktar.",
+      "answers": {
+        "javascript": "const first = numbers[0];",
+        "python": "first = numbers[0]",
+        "csharp": "int first = numbers[0];"
+      },
+      "explanation": "Dizilerde ilk eleman 0 numaralı indekste bulunur."
+    }
   }
 ]

@@ -5,19 +5,17 @@ from app.main import app
 client = TestClient(app)
 
 
-def test_list_questions_returns_stable_order() -> None:
+def test_list_questions_returns_complete_stable_order() -> None:
     response = client.get("/api/v1/questions")
 
     assert response.status_code == 200
 
     questions = response.json()
 
-    assert len(questions) == 2
-    assert [question["order"] for question in questions] == [1, 2]
-    assert [question["slug"] for question in questions] == [
-        "iki-sayiyi-topla",
-        "dikdortgen-alani",
-    ]
+    assert len(questions) == 12
+    assert [question["order"] for question in questions] == list(range(1, 13))
+    assert questions[0]["slug"] == "iki-sayiyi-topla"
+    assert questions[-1]["slug"] == "izgara-yollari"
 
 
 def test_question_summary_does_not_include_full_content() -> None:
@@ -49,6 +47,17 @@ def test_get_question_returns_learning_content() -> None:
     assert "javascript" in question["starter_code"]
     assert "python" in question["starter_code"]
     assert "csharp" in question["starter_code"]
+
+
+def test_every_question_has_six_hidden_tests() -> None:
+    from app.services.question_catalog import QUESTIONS
+    from app.services.question_tests import get_question_tests
+
+    for question in QUESTIONS:
+        tests = get_question_tests(question.id)
+
+        assert tests is not None
+        assert len(tests) == 6
 
 
 def test_missing_question_returns_404() -> None:

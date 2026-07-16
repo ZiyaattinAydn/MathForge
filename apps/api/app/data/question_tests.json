@@ -1,54 +1,506 @@
 {
   "question-001": [
     {
-      "inputs": [4, 7],
+      "inputs": [
+        4,
+        7
+      ],
       "expected": 11
     },
     {
-      "inputs": [-3, 8],
+      "inputs": [
+        -3,
+        8
+      ],
       "expected": 5
     },
     {
-      "inputs": [0, 0],
+      "inputs": [
+        0,
+        0
+      ],
       "expected": 0
     },
     {
-      "inputs": [-10, -5],
+      "inputs": [
+        -10,
+        -5
+      ],
       "expected": -15
     },
     {
-      "inputs": [999, 1],
+      "inputs": [
+        999,
+        1
+      ],
       "expected": 1000
     },
     {
-      "inputs": [125, 375],
+      "inputs": [
+        125,
+        375
+      ],
       "expected": 500
     }
   ],
   "question-002": [
     {
-      "inputs": [5, 3],
+      "inputs": [
+        5,
+        3
+      ],
       "expected": 15
     },
     {
-      "inputs": [8, 4],
+      "inputs": [
+        8,
+        4
+      ],
       "expected": 32
     },
     {
-      "inputs": [1, 1],
+      "inputs": [
+        1,
+        1
+      ],
       "expected": 1
     },
     {
-      "inputs": [100, 25],
+      "inputs": [
+        100,
+        25
+      ],
       "expected": 2500
     },
     {
-      "inputs": [7, 9],
+      "inputs": [
+        7,
+        9
+      ],
       "expected": 63
     },
     {
-      "inputs": [50, 2],
+      "inputs": [
+        50,
+        2
+      ],
       "expected": 100
+    }
+  ],
+  "question-003": [
+    {
+      "inputs": [
+        0
+      ],
+      "expected": true
+    },
+    {
+      "inputs": [
+        1
+      ],
+      "expected": false
+    },
+    {
+      "inputs": [
+        2
+      ],
+      "expected": true
+    },
+    {
+      "inputs": [
+        -3
+      ],
+      "expected": false
+    },
+    {
+      "inputs": [
+        -8
+      ],
+      "expected": true
+    },
+    {
+      "inputs": [
+        999
+      ],
+      "expected": false
+    }
+  ],
+  "question-004": [
+    {
+      "inputs": [
+        1,
+        2,
+        3
+      ],
+      "expected": 3
+    },
+    {
+      "inputs": [
+        9,
+        4,
+        2
+      ],
+      "expected": 9
+    },
+    {
+      "inputs": [
+        -1,
+        -5,
+        -3
+      ],
+      "expected": -1
+    },
+    {
+      "inputs": [
+        7,
+        7,
+        1
+      ],
+      "expected": 7
+    },
+    {
+      "inputs": [
+        0,
+        0,
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "inputs": [
+        -10,
+        20,
+        5
+      ],
+      "expected": 20
+    }
+  ],
+  "question-005": [
+    {
+      "inputs": [
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "inputs": [
+        7
+      ],
+      "expected": 7
+    },
+    {
+      "inputs": [
+        1234
+      ],
+      "expected": 10
+    },
+    {
+      "inputs": [
+        99999
+      ],
+      "expected": 45
+    },
+    {
+      "inputs": [
+        100500
+      ],
+      "expected": 6
+    },
+    {
+      "inputs": [
+        908070
+      ],
+      "expected": 24
+    }
+  ],
+  "question-006": [
+    {
+      "inputs": [
+        48,
+        18
+      ],
+      "expected": 6
+    },
+    {
+      "inputs": [
+        7,
+        13
+      ],
+      "expected": 1
+    },
+    {
+      "inputs": [
+        0,
+        5
+      ],
+      "expected": 5
+    },
+    {
+      "inputs": [
+        270,
+        192
+      ],
+      "expected": 6
+    },
+    {
+      "inputs": [
+        100,
+        25
+      ],
+      "expected": 25
+    },
+    {
+      "inputs": [
+        81,
+        153
+      ],
+      "expected": 9
+    }
+  ],
+  "question-007": [
+    {
+      "inputs": [
+        1
+      ],
+      "expected": false
+    },
+    {
+      "inputs": [
+        2
+      ],
+      "expected": true
+    },
+    {
+      "inputs": [
+        4
+      ],
+      "expected": false
+    },
+    {
+      "inputs": [
+        17
+      ],
+      "expected": true
+    },
+    {
+      "inputs": [
+        97
+      ],
+      "expected": true
+    },
+    {
+      "inputs": [
+        100
+      ],
+      "expected": false
+    }
+  ],
+  "question-008": [
+    {
+      "inputs": [
+        0
+      ],
+      "expected": 0
+    },
+    {
+      "inputs": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "inputs": [
+        2
+      ],
+      "expected": 1
+    },
+    {
+      "inputs": [
+        5
+      ],
+      "expected": 5
+    },
+    {
+      "inputs": [
+        10
+      ],
+      "expected": 55
+    },
+    {
+      "inputs": [
+        20
+      ],
+      "expected": 6765
+    }
+  ],
+  "question-009": [
+    {
+      "inputs": [
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "inputs": [
+        12
+      ],
+      "expected": 3
+    },
+    {
+      "inputs": [
+        49
+      ],
+      "expected": 7
+    },
+    {
+      "inputs": [
+        13195
+      ],
+      "expected": 29
+    },
+    {
+      "inputs": [
+        97
+      ],
+      "expected": 97
+    },
+    {
+      "inputs": [
+        600
+      ],
+      "expected": 5
+    }
+  ],
+  "question-010": [
+    {
+      "inputs": [
+        1
+      ],
+      "expected": 1
+    },
+    {
+      "inputs": [
+        2
+      ],
+      "expected": 2
+    },
+    {
+      "inputs": [
+        3
+      ],
+      "expected": 8
+    },
+    {
+      "inputs": [
+        6
+      ],
+      "expected": 9
+    },
+    {
+      "inputs": [
+        13
+      ],
+      "expected": 10
+    },
+    {
+      "inputs": [
+        27
+      ],
+      "expected": 112
+    }
+  ],
+  "question-011": [
+    {
+      "inputs": [
+        2,
+        10,
+        1000
+      ],
+      "expected": 24
+    },
+    {
+      "inputs": [
+        3,
+        5,
+        7
+      ],
+      "expected": 5
+    },
+    {
+      "inputs": [
+        10,
+        0,
+        6
+      ],
+      "expected": 1
+    },
+    {
+      "inputs": [
+        5,
+        117,
+        19
+      ],
+      "expected": 1
+    },
+    {
+      "inputs": [
+        7,
+        13,
+        11
+      ],
+      "expected": 2
+    },
+    {
+      "inputs": [
+        123,
+        456,
+        97
+      ],
+      "expected": 22
+    }
+  ],
+  "question-012": [
+    {
+      "inputs": [
+        0,
+        0
+      ],
+      "expected": 1
+    },
+    {
+      "inputs": [
+        1,
+        1
+      ],
+      "expected": 2
+    },
+    {
+      "inputs": [
+        2,
+        2
+      ],
+      "expected": 6
+    },
+    {
+      "inputs": [
+        2,
+        3
+      ],
+      "expected": 10
+    },
+    {
+      "inputs": [
+        5,
+        5
+      ],
+      "expected": 252
+    },
+    {
+      "inputs": [
+        10,
+        10
+      ],
+      "expected": 184756
     }
   ]
 }

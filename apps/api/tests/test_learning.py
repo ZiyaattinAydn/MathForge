@@ -12,13 +12,17 @@ def test_list_learning_topics_returns_stable_order() -> None:
 
     topics = response.json()
 
-    assert len(topics) == 4
-    assert [topic["order"] for topic in topics] == [1, 2, 3, 4]
+    assert len(topics) == 8
+    assert [topic["order"] for topic in topics] == list(range(1, 9))
     assert [topic["slug"] for topic in topics] == [
         "degiskenler",
         "dort-islem",
         "fonksiyonlar",
         "return",
+        "kosullar",
+        "donguler",
+        "modulo",
+        "listeler",
     ]
 
 

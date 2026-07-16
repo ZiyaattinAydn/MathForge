@@ -33,12 +33,18 @@
     ],
     "examples": [
       {
-        "inputs": [4, 7],
+        "inputs": [
+          4,
+          7
+        ],
         "expected_output": 11,
         "explanation": "4 + 7 işleminin sonucu 11'dir."
       },
       {
-        "inputs": [-3, 8],
+        "inputs": [
+          -3,
+          8
+        ],
         "expected_output": 5,
         "explanation": "-3 + 8 işleminin sonucu 5'tir."
       }
@@ -88,12 +94,18 @@
     ],
     "examples": [
       {
-        "inputs": [5, 3],
+        "inputs": [
+          5,
+          3
+        ],
         "expected_output": 15,
         "explanation": "Dikdörtgenin alanı 5 × 3 = 15'tir."
       },
       {
-        "inputs": [8, 4],
+        "inputs": [
+          8,
+          4
+        ],
         "expected_output": 32,
         "explanation": "Dikdörtgenin alanı 8 × 4 = 32'dir."
       }
@@ -107,6 +119,619 @@
       "javascript": "function rectangleArea(width, height) {\n  // Dikdörtgenin alanını hesapla\n  // sonucu return ile geri döndür\n}",
       "python": "def rectangle_area(width, height):\n    # Dikdörtgenin alanını hesapla\n    # sonucu return ile geri döndür\n    pass",
       "csharp": "public static int RectangleArea(int width, int height)\n{\n    // Dikdörtgenin alanını hesapla\n    // sonucu return ile geri döndür\n    return 0;\n}"
+    }
+  },
+  {
+    "id": "question-003",
+    "slug": "sayi-tek-mi-cift-mi",
+    "order": 3,
+    "title": "Sayı Tek mi Çift mi?",
+    "audience": "general",
+    "difficulty": "medium",
+    "learning_goal": "Kalan bulma operatörü ve koşullarla bir sayıyı sınıflandır.",
+    "description": "Bir sayının ikiye tam bölünüp bölünmediğini kodla kontrol edeceksin.",
+    "task": "number adında bir tam sayı alan fonksiyon yaz. Sayı çiftse true, tekse false döndür.",
+    "input_description": "Fonksiyon number adında bir tam sayı alır.",
+    "output_description": "Sayı çiftse true, tekse false döndür.",
+    "learning_topics": [
+      "arithmetic",
+      "conditions",
+      "modulo",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "% operatörü bölme işleminden kalanı verir.",
+      "Bir sayı ikiye bölündüğünde kalan sıfırsa çifttir.",
+      "Eşitlik kontrolü için == veya === kullanılır."
+    ],
+    "hints": [
+      "number % 2 ifadesinin sonucunu kontrol et.",
+      "Kalan sıfıra eşitse true döndür."
+    ],
+    "common_mistakes": [
+      "Kalanı kontrol etmek yerine sayıyı doğrudan ikiye bölmek.",
+      "Karşılaştırma yerine değer atama operatörü kullanmak.",
+      "Negatif çift sayıların da çift olduğunu unutmak."
+    ],
+    "examples": [
+      {
+        "inputs": [
+          8
+        ],
+        "expected_output": true,
+        "explanation": "8 sayısı ikiye kalansız bölünür."
+      },
+      {
+        "inputs": [
+          7
+        ],
+        "expected_output": false,
+        "explanation": "7 sayısının ikiye bölümünden kalan 1'dir."
+      }
+    ],
+    "function_names": {
+      "javascript": "isEven",
+      "python": "is_even",
+      "csharp": "IsEven"
+    },
+    "starter_code": {
+      "javascript": "function isEven(number) {\n  // Sayının çift olup olmadığını kontrol et\n}",
+      "python": "def is_even(number):\n    # Sayının çift olup olmadığını kontrol et\n    pass",
+      "csharp": "public static bool IsEven(int number)\n{\n    // Sayının çift olup olmadığını kontrol et\n    return false;\n}"
+    }
+  },
+  {
+    "id": "question-004",
+    "slug": "uc-sayinin-en-buyugu",
+    "order": 4,
+    "title": "Üç Sayının En Büyüğü",
+    "audience": "general",
+    "difficulty": "medium",
+    "learning_goal": "Karşılaştırmalar ve koşullarla en büyük değeri bul.",
+    "description": "Üç değeri karşılaştırarak içlerinden en büyüğünü seçeceksin.",
+    "task": "a, b ve c adında üç tam sayı alan fonksiyon yaz. En büyük sayıyı döndür.",
+    "input_description": "Fonksiyon a, b ve c adında üç tam sayı alır.",
+    "output_description": "Üç sayı arasındaki en büyük tam sayıyı döndür.",
+    "learning_topics": [
+      "variables",
+      "conditions",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "Bir değeri başlangıçta en büyük kabul edip diğerleriyle karşılaştırabilirsin.",
+      "Eşit sayılar bulunabilir.",
+      "Negatif sayılarda sıfıra daha yakın sayı daha büyüktür."
+    ],
+    "hints": [
+      "Önce a değerini en büyük kabul et.",
+      "b ve c daha büyükse tuttuğun değeri güncelle."
+    ],
+    "common_mistakes": [
+      "Yalnızca a ile b değerlerini karşılaştırmak.",
+      "Negatif sayılarda karşılaştırmayı ters yorumlamak.",
+      "Eşitlik durumlarını gözden kaçırmak."
+    ],
+    "examples": [
+      {
+        "inputs": [
+          3,
+          9,
+          5
+        ],
+        "expected_output": 9,
+        "explanation": "3, 9 ve 5 arasındaki en büyük değer 9'dur."
+      },
+      {
+        "inputs": [
+          -4,
+          -2,
+          -8
+        ],
+        "expected_output": -2,
+        "explanation": "Negatif değerler arasında -2 en büyüktür."
+      }
+    ],
+    "function_names": {
+      "javascript": "maxOfThree",
+      "python": "max_of_three",
+      "csharp": "MaxOfThree"
+    },
+    "starter_code": {
+      "javascript": "function maxOfThree(a, b, c) {\n  // En büyük sayıyı bul\n}",
+      "python": "def max_of_three(a, b, c):\n    # En büyük sayıyı bul\n    pass",
+      "csharp": "public static int MaxOfThree(int a, int b, int c)\n{\n    // En büyük sayıyı bul\n    return 0;\n}"
+    }
+  },
+  {
+    "id": "question-005",
+    "slug": "rakamlar-toplami",
+    "order": 5,
+    "title": "Rakamlar Toplamı",
+    "audience": "general",
+    "difficulty": "hard",
+    "learning_goal": "Döngü ve kalan bulma işlemiyle bir sayının basamaklarını işle.",
+    "description": "Bir tam sayının rakamlarını tek tek ayırıp toplamayı öğreneceksin.",
+    "task": "number adında negatif olmayan bir tam sayı alan fonksiyon yaz. Sayının tüm rakamlarının toplamını döndür.",
+    "input_description": "Fonksiyon sıfır veya daha büyük bir tam sayı alır.",
+    "output_description": "Sayının rakamları toplamını tam sayı olarak döndür.",
+    "learning_topics": [
+      "loops",
+      "arithmetic",
+      "modulo",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "number % 10 son rakamı verir.",
+      "Tam sayı bölmesiyle son rakamı sayıdan atabilirsin.",
+      "Sayı sıfır olana kadar işlemi tekrarla."
+    ],
+    "hints": [
+      "Her turda son rakamı toplam değişkenine ekle.",
+      "Ardından sayıyı ona tam sayı olarak böl."
+    ],
+    "common_mistakes": [
+      "Bölme sonucunu tam sayıya çevirmemek.",
+      "Toplam değişkenini döngü içinde sıfırlamak.",
+      "number = 0 durumunu gözden kaçırmak."
+    ],
+    "examples": [
+      {
+        "inputs": [
+          1234
+        ],
+        "expected_output": 10,
+        "explanation": "1 + 2 + 3 + 4 = 10."
+      },
+      {
+        "inputs": [
+          1005
+        ],
+        "expected_output": 6,
+        "explanation": "1 + 0 + 0 + 5 = 6."
+      }
+    ],
+    "function_names": {
+      "javascript": "digitSum",
+      "python": "digit_sum",
+      "csharp": "DigitSum"
+    },
+    "starter_code": {
+      "javascript": "function digitSum(number) {\n  // Rakamların toplamını hesapla\n}",
+      "python": "def digit_sum(number):\n    # Rakamların toplamını hesapla\n    pass",
+      "csharp": "public static int DigitSum(int number)\n{\n    // Rakamların toplamını hesapla\n    return 0;\n}"
+    }
+  },
+  {
+    "id": "question-006",
+    "slug": "en-buyuk-ortak-bolen",
+    "order": 6,
+    "title": "En Büyük Ortak Bölen",
+    "audience": "general",
+    "difficulty": "hard",
+    "learning_goal": "Öklid algoritmasıyla tekrar eden matematiksel bir süreç kur.",
+    "description": "İki sayıyı kalansız bölebilen en büyük sayıyı bulacaksın.",
+    "task": "a ve b adında iki negatif olmayan tam sayı alan fonksiyon yaz. En büyük ortak bölenlerini döndür.",
+    "input_description": "Fonksiyon a ve b adında iki negatif olmayan tam sayı alır. İkisi aynı anda sıfır değildir.",
+    "output_description": "İki sayının en büyük ortak bölenini döndür.",
+    "learning_topics": [
+      "loops",
+      "modulo",
+      "variables",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "Öklid algoritması a ve b değerlerini b ve a % b ile değiştirir.",
+      "b sıfır olduğunda a sonucu taşır.",
+      "Bir sayıyla sıfırın EBOB'u sayının kendisidir."
+    ],
+    "hints": [
+      "b sıfır olmayana kadar döngü kur.",
+      "Kalanı kaybetmeden önce geçici bir değişkende sakla."
+    ],
+    "common_mistakes": [
+      "a değerini değiştirdikten sonra eski a değerine ihtiyaç duyulduğunu unutmak.",
+      "Döngünün bitiş koşulunu yanlış yazmak.",
+      "Sıfır içeren girdileri dikkate almamak."
+    ],
+    "examples": [
+      {
+        "inputs": [
+          48,
+          18
+        ],
+        "expected_output": 6,
+        "explanation": "48 ve 18'i bölen en büyük ortak sayı 6'dır."
+      },
+      {
+        "inputs": [
+          7,
+          13
+        ],
+        "expected_output": 1,
+        "explanation": "7 ve 13 aralarında asaldır."
+      }
+    ],
+    "function_names": {
+      "javascript": "greatestCommonDivisor",
+      "python": "greatest_common_divisor",
+      "csharp": "GreatestCommonDivisor"
+    },
+    "starter_code": {
+      "javascript": "function greatestCommonDivisor(a, b) {\n  // En büyük ortak böleni bul\n}",
+      "python": "def greatest_common_divisor(a, b):\n    # En büyük ortak böleni bul\n    pass",
+      "csharp": "public static int GreatestCommonDivisor(int a, int b)\n{\n    // En büyük ortak böleni bul\n    return 0;\n}"
+    }
+  },
+  {
+    "id": "question-007",
+    "slug": "asal-sayi-kontrolu",
+    "order": 7,
+    "title": "Asal Sayı Kontrolü",
+    "audience": "math-lover",
+    "difficulty": "easy",
+    "learning_goal": "Bir sayının bölenlerini kontrollü biçimde araştır.",
+    "description": "Bir sayının yalnızca 1'e ve kendisine bölünüp bölünmediğini kontrol edeceksin.",
+    "task": "number adında bir tam sayı alan fonksiyon yaz. Sayı asalsa true, değilse false döndür.",
+    "input_description": "Fonksiyon bir tam sayı alır.",
+    "output_description": "Sayı asalsa true, aksi hâlde false döndür.",
+    "learning_topics": [
+      "conditions",
+      "loops",
+      "modulo",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "2'den küçük sayılar asal değildir.",
+      "Bir bölen bulduğunda hemen false döndürebilirsin.",
+      "Sayının kareköküne kadar kontrol etmek yeterlidir."
+    ],
+    "hints": [
+      "Kontrole 2 sayısından başla.",
+      "i * i <= number koşulunu kullanabilirsin."
+    ],
+    "common_mistakes": [
+      "1 sayısını asal kabul etmek.",
+      "Sayının kendisini de bölen olarak kontrol etmek.",
+      "Döngü sınırını gereksiz yere number değerine kadar götürmek."
+    ],
+    "examples": [
+      {
+        "inputs": [
+          17
+        ],
+        "expected_output": true,
+        "explanation": "17'nin 1 ve 17 dışında pozitif böleni yoktur."
+      },
+      {
+        "inputs": [
+          20
+        ],
+        "expected_output": false,
+        "explanation": "20 sayısı 2, 4, 5 ve 10 gibi bölenlere sahiptir."
+      }
+    ],
+    "function_names": {
+      "javascript": "isPrime",
+      "python": "is_prime",
+      "csharp": "IsPrime"
+    },
+    "starter_code": {
+      "javascript": "function isPrime(number) {\n  // Sayının asal olup olmadığını kontrol et\n}",
+      "python": "def is_prime(number):\n    # Sayının asal olup olmadığını kontrol et\n    pass",
+      "csharp": "public static bool IsPrime(int number)\n{\n    // Sayının asal olup olmadığını kontrol et\n    return false;\n}"
+    }
+  },
+  {
+    "id": "question-008",
+    "slug": "fibonacci-terimi",
+    "order": 8,
+    "title": "Fibonacci Terimi",
+    "audience": "math-lover",
+    "difficulty": "easy",
+    "learning_goal": "Önceki iki değeri kullanarak bir sayı dizisi üret.",
+    "description": "Her terimin kendinden önceki iki terimin toplamı olduğu Fibonacci dizisiyle çalışacaksın.",
+    "task": "n adında bir tam sayı alan fonksiyon yaz. Sıfırıncı terimi 0, birinci terimi 1 olan dizinin n'inci terimini döndür.",
+    "input_description": "Fonksiyon 0 ile 30 arasında bir n tam sayısı alır.",
+    "output_description": "Fibonacci dizisinin n'inci terimini döndür.",
+    "learning_topics": [
+      "variables",
+      "loops",
+      "arithmetic",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "Başlangıç değerlerini 0 ve 1 olarak tut.",
+      "Her turda yeni değer önceki iki değerin toplamıdır.",
+      "Değerleri güncellerken eski değerleri kaybetmemeye dikkat et."
+    ],
+    "hints": [
+      "a = 0 ve b = 1 ile başlayabilirsin.",
+      "Her döngüde a ve b değerlerini ileri taşı."
+    ],
+    "common_mistakes": [
+      "Sıfırıncı terimi 1 kabul etmek.",
+      "Değerleri yanlış sırada güncellemek.",
+      "n = 0 durumunu gözden kaçırmak."
+    ],
+    "examples": [
+      {
+        "inputs": [
+          5
+        ],
+        "expected_output": 5,
+        "explanation": "Dizi 0, 1, 1, 2, 3, 5 şeklinde ilerler."
+      },
+      {
+        "inputs": [
+          10
+        ],
+        "expected_output": 55,
+        "explanation": "Fibonacci dizisinin 10. terimi 55'tir."
+      }
+    ],
+    "function_names": {
+      "javascript": "fibonacci",
+      "python": "fibonacci",
+      "csharp": "Fibonacci"
+    },
+    "starter_code": {
+      "javascript": "function fibonacci(n) {\n  // n'inci Fibonacci terimini bul\n}",
+      "python": "def fibonacci(n):\n    # n'inci Fibonacci terimini bul\n    pass",
+      "csharp": "public static int Fibonacci(int n)\n{\n    // n'inci Fibonacci terimini bul\n    return 0;\n}"
+    }
+  },
+  {
+    "id": "question-009",
+    "slug": "en-buyuk-asal-carpan",
+    "order": 9,
+    "title": "En Büyük Asal Çarpan",
+    "audience": "math-lover",
+    "difficulty": "medium",
+    "learning_goal": "Bir sayıyı asal çarpanlarına ayırarak en büyük çarpanı bul.",
+    "description": "Bir sayıyı bölen asal sayıları araştırıp en büyüğünü seçeceksin.",
+    "task": "number adında 2 veya daha büyük bir tam sayı alan fonksiyon yaz. Sayının en büyük asal çarpanını döndür.",
+    "input_description": "Fonksiyon 2 veya daha büyük bir tam sayı alır.",
+    "output_description": "Sayının en büyük asal çarpanını döndür.",
+    "learning_topics": [
+      "loops",
+      "conditions",
+      "modulo",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "Bir çarpanı bulduğunda sayı artık bölünemeyene kadar böl.",
+      "Küçük çarpanları temizledikçe geriye daha büyük çarpanlar kalır.",
+      "Döngü sonunda sayı 1'den büyükse kendisi asal çarpandır."
+    ],
+    "hints": [
+      "2 sayısından başlayarak olası çarpanları dene.",
+      "Aynı çarpan sayıyı birden fazla kez bölebilir."
+    ],
+    "common_mistakes": [
+      "Bir çarpanı yalnızca bir kez bölmek.",
+      "Asal olan girdilerde sayının kendisini döndürmemek.",
+      "En son bulunan çarpanı saklamamak."
+    ],
+    "examples": [
+      {
+        "inputs": [
+          12
+        ],
+        "expected_output": 3,
+        "explanation": "12 = 2 × 2 × 3 olduğundan en büyük asal çarpan 3'tür."
+      },
+      {
+        "inputs": [
+          49
+        ],
+        "expected_output": 7,
+        "explanation": "49 = 7 × 7."
+      }
+    ],
+    "function_names": {
+      "javascript": "largestPrimeFactor",
+      "python": "largest_prime_factor",
+      "csharp": "LargestPrimeFactor"
+    },
+    "starter_code": {
+      "javascript": "function largestPrimeFactor(number) {\n  // En büyük asal çarpanı bul\n}",
+      "python": "def largest_prime_factor(number):\n    # En büyük asal çarpanı bul\n    pass",
+      "csharp": "public static int LargestPrimeFactor(int number)\n{\n    // En büyük asal çarpanı bul\n    return 0;\n}"
+    }
+  },
+  {
+    "id": "question-010",
+    "slug": "collatz-zinciri",
+    "order": 10,
+    "title": "Collatz Zinciri Uzunluğu",
+    "audience": "math-lover",
+    "difficulty": "medium",
+    "learning_goal": "Tek ve çift sayılara farklı kurallar uygulayan bir zincir oluştur.",
+    "description": "Bir sayı 1'e ulaşana kadar Collatz kurallarını tekrar tekrar uygulayacaksın.",
+    "task": "number adında pozitif bir tam sayı alan fonksiyon yaz. Başlangıç ve son 1 dâhil olmak üzere zincirdeki değer sayısını döndür.",
+    "input_description": "Fonksiyon pozitif bir tam sayı alır.",
+    "output_description": "Collatz zincirindeki toplam terim sayısını döndür.",
+    "learning_topics": [
+      "conditions",
+      "loops",
+      "modulo",
+      "arithmetic",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "Sayı çiftse ikiye böl.",
+      "Sayı tekse 3 × number + 1 işlemini uygula.",
+      "Başlangıç sayısını da zincir uzunluğuna dâhil et."
+    ],
+    "hints": [
+      "Sayaç değerini 1 ile başlat.",
+      "number 1 olana kadar döngüyü sürdür."
+    ],
+    "common_mistakes": [
+      "Başlangıç veya son 1 değerini saymamak.",
+      "Tek ve çift koşullarını ters yazmak.",
+      "Sayıyı güncellemeyi unutup sonsuz döngü oluşturmak."
+    ],
+    "examples": [
+      {
+        "inputs": [
+          3
+        ],
+        "expected_output": 8,
+        "explanation": "3, 10, 5, 16, 8, 4, 2, 1 olmak üzere 8 terim vardır."
+      },
+      {
+        "inputs": [
+          6
+        ],
+        "expected_output": 9,
+        "explanation": "6 ile başlayan zincir 9 terimde 1'e ulaşır."
+      }
+    ],
+    "function_names": {
+      "javascript": "collatzLength",
+      "python": "collatz_length",
+      "csharp": "CollatzLength"
+    },
+    "starter_code": {
+      "javascript": "function collatzLength(number) {\n  // Zincirin uzunluğunu hesapla\n}",
+      "python": "def collatz_length(number):\n    # Zincirin uzunluğunu hesapla\n    pass",
+      "csharp": "public static int CollatzLength(int number)\n{\n    // Zincirin uzunluğunu hesapla\n    return 0;\n}"
+    }
+  },
+  {
+    "id": "question-011",
+    "slug": "hizli-moduler-us",
+    "order": 11,
+    "title": "Hızlı Modüler Üs Alma",
+    "audience": "math-lover",
+    "difficulty": "hard",
+    "learning_goal": "Büyük üsleri verimli biçimde modüler aritmetikle hesapla.",
+    "description": "Üs alma işlemini tek tek çarpmak yerine karesini alma yöntemiyle hızlandıracaksın.",
+    "task": "base, exponent ve modulus değerlerini alan fonksiyon yaz. base üzeri exponent işleminin modulus ile bölümünden kalanı döndür.",
+    "input_description": "Fonksiyon bir taban, negatif olmayan üs ve 1'den büyük mod değeri alır.",
+    "output_description": "base^exponent mod modulus sonucunu döndür.",
+    "learning_topics": [
+      "loops",
+      "conditions",
+      "modulo",
+      "arithmetic",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "Sonucu her çarpmadan sonra mod değerine göre küçült.",
+      "Üs tekse mevcut tabanı sonuca çarp.",
+      "Her turda tabanın karesini alıp üssü ikiye böl."
+    ],
+    "hints": [
+      "result değerini 1 ile başlat.",
+      "exponent sıfır olana kadar döngü kur."
+    ],
+    "common_mistakes": [
+      "Ara sonuçlarda mod işlemini uygulamamak.",
+      "Üssün tek olup olmadığını kontrol etmemek.",
+      "exponent = 0 durumunda 1 döndürmeyi unutmak."
+    ],
+    "examples": [
+      {
+        "inputs": [
+          2,
+          10,
+          1000
+        ],
+        "expected_output": 24,
+        "explanation": "2^10 = 1024 ve 1024 mod 1000 = 24."
+      },
+      {
+        "inputs": [
+          3,
+          5,
+          7
+        ],
+        "expected_output": 5,
+        "explanation": "3^5 = 243 ve 243 mod 7 = 5."
+      }
+    ],
+    "function_names": {
+      "javascript": "modularPower",
+      "python": "modular_power",
+      "csharp": "ModularPower"
+    },
+    "starter_code": {
+      "javascript": "function modularPower(base, exponent, modulus) {\n  // Modüler üs sonucunu hesapla\n}",
+      "python": "def modular_power(base, exponent, modulus):\n    # Modüler üs sonucunu hesapla\n    pass",
+      "csharp": "public static int ModularPower(int baseValue, int exponent, int modulus)\n{\n    // Modüler üs sonucunu hesapla\n    return 0;\n}"
+    }
+  },
+  {
+    "id": "question-012",
+    "slug": "izgara-yollari",
+    "order": 12,
+    "title": "Izgara Yollarının Sayısı",
+    "audience": "math-lover",
+    "difficulty": "hard",
+    "learning_goal": "Kombinasyon mantığını kullanarak olası yol sayısını hesapla.",
+    "description": "Yalnızca sağa ve aşağı hareket ederek bir ızgarada kaç farklı yol bulunduğunu hesaplayacaksın.",
+    "task": "rows ve columns değerlerini alan fonksiyon yaz. Sol üst köşeden sağ alt köşeye yalnızca sağa ve aşağı giderek ulaşılabilecek yol sayısını döndür.",
+    "input_description": "Fonksiyon 0 ile 10 arasında rows ve columns değerleri alır.",
+    "output_description": "Farklı yol sayısını tam sayı olarak döndür.",
+    "learning_topics": [
+      "loops",
+      "arithmetic",
+      "variables",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "Toplam hareket sayısı rows + columns kadardır.",
+      "Bu hareketlerin rows tanesinin yerini seçmek bir kombinasyon problemidir.",
+      "Faktöriyel hesaplamadan sadeleşen bir çarpım kurulabilir."
+    ],
+    "hints": [
+      "C(rows + columns, rows) kombinasyonunu hesapla.",
+      "Daha az işlem için rows ve columns değerlerinden küçüğünü kullan."
+    ],
+    "common_mistakes": [
+      "Başlangıç noktasını ayrı bir yol gibi eklemek.",
+      "Sağa ve aşağı hareket sayılarını karıştırmak.",
+      "Sıfır satır veya sütunda tek yol olduğunu unutmak."
+    ],
+    "examples": [
+      {
+        "inputs": [
+          2,
+          2
+        ],
+        "expected_output": 6,
+        "explanation": "İki sağ ve iki aşağı hareketin 6 farklı sıralaması vardır."
+      },
+      {
+        "inputs": [
+          2,
+          3
+        ],
+        "expected_output": 10,
+        "explanation": "Beş hareket içinden iki aşağı hareketin yeri 10 biçimde seçilebilir."
+      }
+    ],
+    "function_names": {
+      "javascript": "countGridPaths",
+      "python": "count_grid_paths",
+      "csharp": "CountGridPaths"
+    },
+    "starter_code": {
+      "javascript": "function countGridPaths(rows, columns) {\n  // Farklı yol sayısını hesapla\n}",
+      "python": "def count_grid_paths(rows, columns):\n    # Farklı yol sayısını hesapla\n    pass",
+      "csharp": "public static int CountGridPaths(int rows, int columns)\n{\n    // Farklı yol sayısını hesapla\n    return 0;\n}"
     }
   }
 ]
