@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { CodeEditor } from "@/components/code-editor";
-import { getQuestion } from "@/lib/mathforge-api";
+import { SubmissionResultPanel } from "@/components/submission-result-panel";
+import { getQuestion, submitSolution } from "@/lib/mathforge-api";
 import type {
   Audience,
   Difficulty,
@@ -13,6 +14,7 @@ import type {
   LearningTopicId,
   Question,
   QuestionSummary,
+  SubmissionResponse,
 } from "@/types/mathforge";
 
 const languages: Language[] = [
@@ -137,6 +139,11 @@ export function QuestionWorkspace({
 
   const [isLoading, setIsLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionResult, setSubmissionResult] =
+    useState<SubmissionResponse | null>(null);
+  const [submissionError, setSubmissionError] =
+    useState<string | null>(null);
 
   async function chooseQuestion(slug: string) {
     if (
@@ -148,6 +155,8 @@ export function QuestionWorkspace({
 
     setIsLoading(true);
     setLoadError(null);
+    setSubmissionResult(null);
+    setSubmissionError(null);
 
     try {
       const nextQuestion = await getQuestion(slug);
@@ -171,6 +180,9 @@ export function QuestionWorkspace({
     if (!selectedQuestion) {
       return;
     }
+
+    setSubmissionResult(null);
+    setSubmissionError(null);
 
     const key = getDraftKey(
       selectedQuestion.id,
@@ -198,6 +210,32 @@ export function QuestionWorkspace({
       [key]:
         selectedQuestion.starter_code[selectedLanguage],
     }));
+  }
+
+  async function runCode() {
+    if (!selectedQuestion || !currentCode.trim() || isSubmitting) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmissionResult(null);
+    setSubmissionError(null);
+
+    try {
+      const result = await submitSolution({
+        question_id: selectedQuestion.id,
+        language: selectedLanguage,
+        source_code: currentCode,
+      });
+
+      setSubmissionResult(result);
+    } catch {
+      setSubmissionError(
+        "Kod çalıştırılamadı. FastAPI ve Judge0 bağlantısını kontrol et.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   const currentCode = selectedQuestion
@@ -448,6 +486,8 @@ export function QuestionWorkspace({
                       }`}
                       onClick={() => {
                         setSelectedLanguage(language);
+                        setSubmissionResult(null);
+                        setSubmissionError(null);
                       }}
                     >
                       {languageLabels[language]}
@@ -491,18 +531,21 @@ export function QuestionWorkspace({
 
                 <button
                   type="button"
-                  disabled
-                  title="Kod çalıştırma motoru sonraki aşamada bağlanacak."
-                  className="rounded-xl bg-[var(--brand)] px-5 py-3 text-sm font-bold text-[var(--on-brand)] opacity-50"
+                  disabled={isSubmitting || !currentCode.trim()}
+                  className="rounded-xl bg-[var(--brand)] px-5 py-3 text-sm font-bold text-[var(--on-brand)] hover:bg-[var(--brand-hover)] disabled:cursor-not-allowed disabled:opacity-50"
+                  onClick={() => {
+                    void runCode();
+                  }}
                 >
-                  Kodu Çalıştır
+                  {isSubmitting ? "Çalıştırılıyor..." : "Kodu Çalıştır"}
                 </button>
               </div>
 
-              <div className="mt-4 rounded-xl border border-dashed border-[var(--border)] p-4 text-sm text-[var(--text-secondary)]">
-                Test sonuçları burada gösterilecek. Judge0 bağlantısını
-                sonraki aşamada kuracağız.
-              </div>
+              <SubmissionResultPanel
+                result={submissionResult}
+                error={submissionError}
+                isSubmitting={isSubmitting}
+              />
             </div>
           </article>
         </section>

@@ -62,3 +62,14 @@ def find_question_by_slug(slug: str) -> Question | None:
         ),
         None,
     )
+
+
+def find_question_by_id(question_id: str) -> Question | None:
+    return next(
+        (
+            question
+            for question in QUESTIONS
+            if question.id == question_id
+        ),
+        None,
+    )

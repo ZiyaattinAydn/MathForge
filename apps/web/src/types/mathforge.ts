@@ -57,3 +57,34 @@ export type LearningTopicSummary = {
   title: string;
   summary: string;
 };
+
+export type SubmissionStatus =
+  | "accepted"
+  | "wrong_answer"
+  | "compilation_error"
+  | "runtime_error"
+  | "time_limit_exceeded"
+  | "internal_error";
+
+export type SubmissionPayload = {
+  question_id: string;
+  language: Language;
+  source_code: string;
+};
+
+export type SubmissionTestResult = {
+  index: number;
+  passed: boolean;
+  actual: string | null;
+  error: string | null;
+};
+
+export type SubmissionResponse = {
+  status: SubmissionStatus;
+  passed_tests: number;
+  total_tests: number;
+  results: SubmissionTestResult[];
+  execution_time_ms: number | null;
+  memory_kb: number | null;
+  message: string | null;
+};

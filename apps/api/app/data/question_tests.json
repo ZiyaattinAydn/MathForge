@@ -1,0 +1,54 @@
+{
+  "question-001": [
+    {
+      "inputs": [4, 7],
+      "expected": 11
+    },
+    {
+      "inputs": [-3, 8],
+      "expected": 5
+    },
+    {
+      "inputs": [0, 0],
+      "expected": 0
+    },
+    {
+      "inputs": [-10, -5],
+      "expected": -15
+    },
+    {
+      "inputs": [999, 1],
+      "expected": 1000
+    },
+    {
+      "inputs": [125, 375],
+      "expected": 500
+    }
+  ],
+  "question-002": [
+    {
+      "inputs": [5, 3],
+      "expected": 15
+    },
+    {
+      "inputs": [8, 4],
+      "expected": 32
+    },
+    {
+      "inputs": [1, 1],
+      "expected": 1
+    },
+    {
+      "inputs": [100, 25],
+      "expected": 2500
+    },
+    {
+      "inputs": [7, 9],
+      "expected": 63
+    },
+    {
+      "inputs": [50, 2],
+      "expected": 100
+    }
+  ]
+}

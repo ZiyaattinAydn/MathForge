@@ -6,6 +6,7 @@ from pydantic import BaseModel
 
 from app.routers.learning import router as learning_router
 from app.routers.questions import router as questions_router
+from app.routers.submissions import router as submissions_router
 
 
 class HealthResponse(BaseModel):
@@ -28,19 +29,20 @@ def get_allowed_origins() -> list[str]:
 
 app = FastAPI(
     title="MathForge API",
-    version="0.4.0",
+    version="0.5.0",
 )
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=get_allowed_origins(),
     allow_credentials=False,
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
 app.include_router(questions_router)
 app.include_router(learning_router)
+app.include_router(submissions_router)
 
 
 @app.get(
