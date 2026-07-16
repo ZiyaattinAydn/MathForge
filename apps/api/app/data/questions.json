@@ -1,0 +1,112 @@
+[
+  {
+    "id": "question-001",
+    "slug": "iki-sayiyi-topla",
+    "order": 1,
+    "title": "İki Sayıyı Topla",
+    "audience": "general",
+    "difficulty": "easy",
+    "learning_goal": "Değişken, parametre, toplama işlemi ve return kullanımını öğren.",
+    "description": "Bir fonksiyonun aldığı iki sayıyı kullanarak nasıl sonuç ürettiğini öğreneceksin.",
+    "task": "a ve b adında iki sayı alan bir fonksiyon yaz. Fonksiyon bu sayıların toplamını döndürsün.",
+    "input_description": "Fonksiyon a ve b adında iki tam sayı alır.",
+    "output_description": "a ve b sayılarının toplamını tam sayı olarak döndür.",
+    "learning_topics": [
+      "variables",
+      "arithmetic",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "Toplama işlemi için + operatörünü kullan.",
+      "Hesapladığın sonucu return ile geri döndür.",
+      "MathForge değerleri fonksiyonuna kendisi gönderir; input veya prompt kullanmana gerek yoktur."
+    ],
+    "hints": [
+      "a + b ifadesi iki parametrenin toplamını hesaplar.",
+      "Fonksiyonun son satırında sonucu return etmeyi unutma."
+    ],
+    "common_mistakes": [
+      "Sonucu hesaplayıp return etmemek.",
+      "Toplama yerine yalnızca a veya b değerini döndürmek.",
+      "Kullanıcıdan ayrıca veri istemeye çalışmak."
+    ],
+    "examples": [
+      {
+        "inputs": [4, 7],
+        "expected_output": 11,
+        "explanation": "4 + 7 işleminin sonucu 11'dir."
+      },
+      {
+        "inputs": [-3, 8],
+        "expected_output": 5,
+        "explanation": "-3 + 8 işleminin sonucu 5'tir."
+      }
+    ],
+    "function_names": {
+      "javascript": "addNumbers",
+      "python": "add_numbers",
+      "csharp": "AddNumbers"
+    },
+    "starter_code": {
+      "javascript": "function addNumbers(a, b) {\n  // a ve b sayılarını topla\n  // sonucu return ile geri döndür\n}",
+      "python": "def add_numbers(a, b):\n    # a ve b sayılarını topla\n    # sonucu return ile geri döndür\n    pass",
+      "csharp": "public static int AddNumbers(int a, int b)\n{\n    // a ve b sayılarını topla\n    // sonucu return ile geri döndür\n    return 0;\n}"
+    }
+  },
+  {
+    "id": "question-002",
+    "slug": "dikdortgen-alani",
+    "order": 2,
+    "title": "Dikdörtgenin Alanı",
+    "audience": "general",
+    "difficulty": "easy",
+    "learning_goal": "Matematiksel bir formülü değişkenler ve çarpma işlemiyle koda dönüştür.",
+    "description": "Bu soruda bir matematik formülünü programlama dilinde nasıl yazacağını öğreneceksin.",
+    "task": "width ve height değerlerini alan bir fonksiyon yaz. Dikdörtgenin alanını hesaplayıp döndür.",
+    "input_description": "Fonksiyon width ve height adında iki pozitif tam sayı alır.",
+    "output_description": "width × height işleminin sonucunu tam sayı olarak döndür.",
+    "learning_topics": [
+      "variables",
+      "arithmetic",
+      "functions",
+      "return"
+    ],
+    "quick_tips": [
+      "Programlama dillerinde çarpma işlemi için x değil * kullanılır.",
+      "Dikdörtgenin alan formülü genişlik × yüksekliktir.",
+      "İşlemi doğrudan return width * height şeklinde yazabilirsin."
+    ],
+    "hints": [
+      "Alanı bulmak için width ile height değerlerini çarp.",
+      "Çarpma operatörü * işaretidir."
+    ],
+    "common_mistakes": [
+      "Çarpma için x harfini kullanmak.",
+      "width ile height değerlerini toplamak.",
+      "Hesaplanan alanı return etmemek."
+    ],
+    "examples": [
+      {
+        "inputs": [5, 3],
+        "expected_output": 15,
+        "explanation": "Dikdörtgenin alanı 5 × 3 = 15'tir."
+      },
+      {
+        "inputs": [8, 4],
+        "expected_output": 32,
+        "explanation": "Dikdörtgenin alanı 8 × 4 = 32'dir."
+      }
+    ],
+    "function_names": {
+      "javascript": "rectangleArea",
+      "python": "rectangle_area",
+      "csharp": "RectangleArea"
+    },
+    "starter_code": {
+      "javascript": "function rectangleArea(width, height) {\n  // Dikdörtgenin alanını hesapla\n  // sonucu return ile geri döndür\n}",
+      "python": "def rectangle_area(width, height):\n    # Dikdörtgenin alanını hesapla\n    # sonucu return ile geri döndür\n    pass",
+      "csharp": "public static int RectangleArea(int width, int height)\n{\n    // Dikdörtgenin alanını hesapla\n    // sonucu return ile geri döndür\n    return 0;\n}"
+    }
+  }
+]
